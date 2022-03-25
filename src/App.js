@@ -1,9 +1,6 @@
 import React from 'react'
 import GlobalStyles from './global/GlobalStyles'
 import Login from './pages/Login'
-
-
-
 // import { database } from './services/firebase'
 
 
