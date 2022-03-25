@@ -1,6 +1,6 @@
 import React from 'react'
 import GlobalStyles from './global/GlobalStyles'
-
+import Login from './pages/Login'
 
 
 
@@ -27,9 +27,7 @@ const App = () => {
   return (
     <>
     <GlobalStyles/>
-    <div>
-      OPA
-    </div>
+    <Login/>
     </>
   )
 }
