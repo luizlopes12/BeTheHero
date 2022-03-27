@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
+import { firebase } from '../../services/firebase'
 import { RegisterStyle } from './styled'
 import TextField from '../../components/TextField'
 import Button from '../../components/Button'
 import PasswordField from '../../components/PasswordField'
 import logo from '../../img/Logo.svg'
 import arrow from '../../img/voltar-arrow.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Register = () => {
+  const navigate = useNavigate()
   const [ongName, setOngName] = useState('')
   const [whatsApp, setWhatsApp] = useState('')
   const [city, setCity] = useState('')
@@ -34,6 +36,20 @@ const Register = () => {
 
   const formSubmit = (e) =>{
     e.preventDefault()
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(()=>{
+      navigate('/')
+    })
+    .catch((error) =>{
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+
+
+
+
     // console.log({
     //   ongName: ongName.trim(),
     //   whatsApp: whatsApp.trim(),
