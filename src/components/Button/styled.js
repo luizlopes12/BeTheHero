@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const ButtonStyle = styled.button`
-    width: 250px;
-    height: 50px;
+    width: ${props => props.width};
+    height: ${props => props.height};
     border: none;
     font-size: .9em;
     font-weight: 500;
@@ -16,4 +16,6 @@ export const ButtonStyle = styled.button`
     &:hover{
         filter: brightness(.85);
     }
+
+
 `
