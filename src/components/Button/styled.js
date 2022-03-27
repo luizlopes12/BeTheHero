@@ -14,6 +14,6 @@ export const ButtonStyle = styled.button`
 
 
     &:hover{
-        filter: brightness(.8);
+        filter: brightness(.85);
     }
 `
