@@ -17,7 +17,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [userId, setUserId] = useState('')
+  const [ongId, setOngId] = useState('')
   const handleEmail = (e) =>{
     setEmail(e.target.value)
     console.log(email)
@@ -31,8 +31,13 @@ const Login = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       // navigate('/')
-      setUserId(firebase.auth().currentUser.user.uid)
-      console.log(userId)
+      setOngId(firebase.auth().currentUser.uid)
+      console.log(ongId)
+    // Mostrando os dados da ong que estão no banco
+    var OngRef = firebase.database().ref(`ONGs/${ongId}`);
+    OngRef.on('value', (snapshot) => {
+      console.log(snapshot.val())
+    });
     })
     .catch((error) => {
     var errorCode = error.code;
