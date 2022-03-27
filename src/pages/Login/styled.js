@@ -11,7 +11,7 @@ export const LoginStyle = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    h2{
+    h2 {
       margin-bottom: 10px;
     }
     div {
@@ -43,6 +43,22 @@ export const LoginStyle = styled.section`
     align-items: center;
     img {
       width: 650px;
+    }
+  }
+
+  @media screen and (max-width: 940px) {
+    aside {
+      div {
+        img {
+          margin: 20px 0 15px;
+        }
+        p {
+          justify-content: center;
+        }
+      }
+    }
+    section {
+      display: none;
     }
   }
 `;
