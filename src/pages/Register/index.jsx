@@ -46,6 +46,10 @@ const Register = () => {
       console.log(errorCode);
       console.log(errorMessage);
     });
+
+
+
+
     // console.log({
     //   ongName: ongName.trim(),
     //   whatsApp: whatsApp.trim(),
@@ -86,27 +90,3 @@ const Register = () => {
 }
 
 export default Register
-
-
-
-/* Testes Firebase */
-
-// import { database } from './services/firebase'
-
-
-// const testGetDb = () => {
-//   database.ref('cases').on('value', item =>{
-//   console.log(item.val())
-// })}
-// const testInsertDb = () =>{
-//   database.ref('cases').push({
-//     id: 2,
-//     title:'Titulo 2',
-//     description: 'Descrição 2',
-//     price: '22',
-//     contact: {
-//       ongEmail: 'luiz@luiz.com',
-//       ongWhatsapp: '999999999'
-//     }
-//   })
-// }

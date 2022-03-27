@@ -3,11 +3,8 @@ import GlobalStyles from './global/GlobalStyles'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import { Provider } from 'react-redux'
-import store from './store'
 const App = () => {
   return (
-    // <Provider store={store}>
     <Router>
     <GlobalStyles/>
     <Routes>
@@ -15,7 +12,6 @@ const App = () => {
       <Route path='/register' element={<Register/>}/>
     </Routes>
     </Router>
-    // </Provider>
   )
 }
 

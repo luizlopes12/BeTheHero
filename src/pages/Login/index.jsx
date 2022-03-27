@@ -17,7 +17,6 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [userId, setUserId] = useState('')
   const handleEmail = (e) =>{
     setEmail(e.target.value)
     console.log(email)
@@ -30,10 +29,7 @@ const Login = () => {
     e.preventDefault()
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
-      if(firebase.auth().currentUser !== null){
-        setUserId(`${firebase.auth().currentUser.uid}`)
-        console.log(userId)
-      }
+      navigate('/')
     })
     .catch((error) => {
     var errorCode = error.code;
@@ -41,8 +37,6 @@ const Login = () => {
     console.log(errorCode)
     console.log(errorMessage)
     });
-
-
   }
 
   return (
