@@ -1,6 +1,7 @@
 import React from 'react'
 import GlobalStyles from './global/GlobalStyles'
-// import { database } from './services/firebase'
+import { Provider } from 'react-redux'
+import store from './store'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -26,6 +27,7 @@ const App = () => {
 // }
 
   return (
+    <Provider store={store}>
     <Router>
     <GlobalStyles/>
     <Routes>
@@ -33,6 +35,7 @@ const App = () => {
       <Route path='/register' element={<Register/>}/>
     </Routes>
     </Router>
+    </Provider>
   )
 }
 

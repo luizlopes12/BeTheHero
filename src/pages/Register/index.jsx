@@ -35,37 +35,27 @@ const Register = () => {
     setPassword(e.target.value);
   };
 
-  const formSubmit = (e) => {
+  const formSubmit = async(e) => {
     e.preventDefault();
     // Cadastrando ong no banco
-    firebase
+    await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        // Buscando o id da ong para adicionar no banco com os outros dados
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(email, password)
-          .then(() => {
-            // Pegando o id da ong
-            setOngId(firebase.auth().currentUser.user.uid);
-          });
+      .then(async() => {
         // Inserindo dados da ong no banco, utilizando o id dela
-        firebase
-          .database()
-          .ref(`ONGs/${ongId}`)
-          .set(
-            {
-              ongName: ongName,
-              email: email,
-              phone: whatsApp,
-              city: city,
-              uf: uf,
-            },
-            (error) => {
-              error && console.log(error);
-            }
-          );
+        const ongRef = await firebase
+                      .database()
+                      .ref(`ONGs`)
+                      .push(
+                        {
+                          ongName: ongName,
+                          email: email,
+                          phone: whatsApp,
+                          city: city,
+                          uf: uf,
+                        }
+                      );
+                      setOngId(ongRef.key)
         ongId ? navigate(`/${ongId}`) : navigate(`/`);
       })
       .catch((error) => {

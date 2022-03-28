@@ -32,7 +32,6 @@ const Login = () => {
     .then(() => {
       // navigate('/')
       setOngId(firebase.auth().currentUser.uid)
-      console.log(ongId)
     // Mostrando os dados da ong que estão no banco
     var OngRef = firebase.database().ref(`ONGs/${ongId}`);
     OngRef.on('value', (snapshot) => {
