@@ -55,8 +55,8 @@ const Register = () => {
                           uf: uf,
                         }
                       );
-                      setOngId(ongRef.key)
-        ongId ? navigate(`/${ongId}`) : navigate(`/`);
+                      setOngId(await ongRef.key)
+        ongId && navigate(`/${ongId}`);
       })
       .catch((error) => {
         var errorCode = error.code;

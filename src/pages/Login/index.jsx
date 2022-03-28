@@ -26,17 +26,12 @@ const Login = () => {
     setPassword(e.target.value)
     console.log(password)
   }
-  const handleSubmit = (e) =>{
+  const handleSubmit = async(e) =>{
     e.preventDefault()
-    firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
-      // navigate('/')
-      setOngId(firebase.auth().currentUser.uid)
+    await firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(async(response) => {
     // Mostrando os dados da ong que estão no banco
-    var OngRef = firebase.database().ref(`ONGs/${ongId}`);
-    OngRef.on('value', (snapshot) => {
-      console.log(snapshot.val())
-    });
+      console.log(response.user.uid)
     })
     .catch((error) => {
     var errorCode = error.code;
