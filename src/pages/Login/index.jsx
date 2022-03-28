@@ -29,10 +29,15 @@ const Login = () => {
   const handleSubmit = async(e) =>{
     e.preventDefault()
     await firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(async(response) => {
-      // Arrumar depois
-      // Preciso fazer um filtro nesse obj para pegar o id da collection q tem o email igual ao email de login
-      console.log(await firebase.database().ref('ONGs').get().then(snapshot => snapshot.val()))
+    .then(async() => {
+      // Procura no banco de dados o documento onde a ong está e seus dados
+      let documents = await firebase.database().ref('ONGs').get().then(snapshot => (snapshot.val()))
+      let documentsArray = Object.entries(await documents)
+      let documentOfThisOng = documentsArray.find(([key, value])=> value.email === email && value)[0]
+      let dataOfThisOng = documentsArray.find(([key, value])=> value.email === email && value)[1]
+      setOngId(documentOfThisOng)
+
+      console.log(ongId)
     })
     .catch((error) => {
     var errorCode = error.code;
