@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { firebase } from "../../services/firebase";
 import { RegisterStyle } from "./styled";
+import setUserData from "../../store/actions/setUserData";
+import { useDispatch } from 'react-redux'
 import TextField from "../../components/TextField";
 import Button from "../../components/Button";
 import PasswordField from "../../components/PasswordField";
@@ -9,13 +11,13 @@ import arrow from "../../img/voltar-arrow.svg";
 import { Link, useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const [ongName, setOngName] = useState("");
   const [whatsApp, setWhatsApp] = useState("");
   const [city, setCity] = useState("");
   const [uf, setUf] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [ongId, setOngId] = useState("");
   const handleOngName = (e) => {
     setOngName(e.target.value);
   };
@@ -43,20 +45,23 @@ const Register = () => {
       .createUserWithEmailAndPassword(email, password)
       .then(async() => {
         // Inserindo dados da ong no banco, utilizando o id dela
-        const ongRef = await firebase
-                      .database()
-                      .ref(`ONGs`)
-                      .push(
-                        {
-                          ongName: ongName,
-                          email: email,
-                          phone: whatsApp,
-                          city: city,
-                          uf: uf,
-                        }
-                      );
-                      setOngId(await ongRef.key)
-        ongId && navigate(`/${ongId}`);
+        await firebase
+            .database()
+            .ref(`ONGs`)
+            .push(
+              {
+                ongName: ongName,
+                email: email,
+                phone: whatsApp,
+                city: city,
+                uf: uf,
+              }
+            );
+            const documents = await firebase.database().ref('ONGs').get().then(snapshot => (snapshot.val()))
+            const documentsArray = Object.entries(await documents)
+            const ongData = documentsArray.find(([key, value])=> value.email === email && value)
+            dispatch(setUserData(ongData))
+            navigate(`/admin`)
       })
       .catch((error) => {
         var errorCode = error.code;

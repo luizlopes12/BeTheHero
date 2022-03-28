@@ -10,14 +10,16 @@ import { LoginStyle } from './styled'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import setUserData from '../../store/actions/setUserData'
 
 
 const Login = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [ongId, setOngId] = useState('')
+
   const handleEmail = (e) =>{
     setEmail(e.target.value)
     console.log(email)
@@ -31,13 +33,11 @@ const Login = () => {
     await firebase.auth().signInWithEmailAndPassword(email, password)
     .then(async() => {
       // Procura no banco de dados o documento onde a ong está e seus dados
-      let documents = await firebase.database().ref('ONGs').get().then(snapshot => (snapshot.val()))
-      let documentsArray = Object.entries(await documents)
-      let documentOfThisOng = documentsArray.find(([key, value])=> value.email === email && value)[0]
-      let dataOfThisOng = documentsArray.find(([key, value])=> value.email === email && value)[1]
-      setOngId(documentOfThisOng)
-
-      console.log(ongId)
+      const documents = await firebase.database().ref('ONGs').get().then(snapshot => (snapshot.val()))
+      const documentsArray = Object.entries(await documents)
+      const ongData = documentsArray.find(([key, value])=> value.email === email && value)
+      dispatch(setUserData(ongData))
+      navigate(`/admin`)
     })
     .catch((error) => {
     var errorCode = error.code;
