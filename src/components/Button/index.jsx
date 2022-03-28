@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonStyle } from "./styled";
 
-const Button = ({ color, bgColor, children, width, height, type }) => {
+const Button = ({ color, bgColor, children, width, height, type,outlined }) => {
   return (
     <ButtonStyle
       color={color}
@@ -9,6 +9,7 @@ const Button = ({ color, bgColor, children, width, height, type }) => {
       width={width}
       height={height}
       type={type}
+      outlined={outlined}
     >
       {children}
     </ButtonStyle>

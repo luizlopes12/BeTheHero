@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import Admin from './pages/Admin'
+import NewCase from './pages/NewCase'
 const App = () => {
   // 
 
@@ -36,6 +37,7 @@ const App = () => {
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/admin' element={<Admin/>}/>
+      <Route path='/newcase' element={<NewCase/>}/>
       <Route path='/' element={<Home/>}/>
     </Routes>
     </Router>

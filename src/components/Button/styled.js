@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ButtonStyle = styled.button`
     width: ${props => props.width};
     height: ${props => props.height};
-    border: none;
+    border: ${props => props.outlined? '1px solid #ccc':'none'};
     font-size: .9em;
     font-weight: 500;
     border-radius: 8px;
