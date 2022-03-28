@@ -30,8 +30,9 @@ const Login = () => {
     e.preventDefault()
     await firebase.auth().signInWithEmailAndPassword(email, password)
     .then(async(response) => {
-    // Mostrando os dados da ong que estão no banco
-      console.log(response.user.uid)
+      // Arrumar depois
+      // Preciso fazer um filtro nesse obj para pegar o id da collection q tem o email igual ao email de login
+      console.log(await firebase.database().ref('ONGs').get().then(snapshot => snapshot.val()))
     })
     .catch((error) => {
     var errorCode = error.code;
