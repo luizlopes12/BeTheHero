@@ -4,7 +4,6 @@ export const ItemStyle = styled.li`
     background-color: #fff;
     width: 48%;
     margin: 10px 0;
-    cursor: pointer;
     border-radius: 8px;
     height: 280px;
     padding: 20px;
@@ -24,7 +23,7 @@ export const ItemStyle = styled.li`
         display: flex;
         flex-direction: column;
         gap: 5px;
-        width: 40%;
+        width: 48%;
         span{
             font-size: .9em;
             font-weight: 500;
@@ -34,8 +33,24 @@ export const ItemStyle = styled.li`
     hr{
         border: .5px solid #ccc;
         margin-top: 10px;
+        margin-bottom: 5px;
     }
-
+    a{
+        color: #E02041;
+        text-decoration: none;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all .2s ease-in-out;
+        img{
+            width: 25px;
+            margin: 0;
+        }
+    }
+    a:hover{
+        filter: brightness(.8);
+    }
     @media screen and (max-width: 800px){
         margin: 10px 0;
         width: 100%;

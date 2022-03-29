@@ -14,7 +14,7 @@ export const HeaderStyle = styled.header`
             }
         }
         aside{
-            margin-top: 5px;
+            margin-top: 10px;
         }
         span{
                 font-size: 1em;
@@ -41,7 +41,7 @@ export const HeaderStyle = styled.header`
             }
             aside{
                 margin-top: 20px;
-                max-width: 60%;
+                max-width: 65%;
             }
             span{
                 font-size: .9em;
