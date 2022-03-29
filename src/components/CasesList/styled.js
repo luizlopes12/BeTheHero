@@ -6,6 +6,7 @@ export const ListStyle = styled.ul`
     list-style: none;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     img{
         width: 60px;
         height: 60px;
