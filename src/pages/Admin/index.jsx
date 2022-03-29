@@ -5,7 +5,7 @@ const Admin = () => {
     const ongData = useSelector(state=> state.userData)
     const navigate = useNavigate()
     useEffect(()=>{
-      !ongData && navigate('/')
+      ongData !== {} && navigate('/')
     },[])
     console.log(ongData)
   return (

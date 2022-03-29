@@ -17,9 +17,9 @@ const NewCase = () => {
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
 
-
+  console.log(ongData)
   useEffect(()=>{
-    !ongData && navigate('/')
+    ongData !== {} && navigate('/')
   },[])
 
   const handleTitle = (e) =>{
