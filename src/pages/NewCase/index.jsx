@@ -28,6 +28,7 @@ const NewCase = () => {
   const formSubmit = (e) =>{
     e.preventDefault()
     firebase.database().ref(`/ONGs/${ongRef}/cases`).push({
+        id: Math.floor(Math.random() * 10000),
         title: title,
         description: description,
         price: price,
