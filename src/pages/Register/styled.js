@@ -5,7 +5,7 @@ export const RegisterStyle = styled.section`
     justify-content: center;
     align-items: center;
     max-height: 100vh;
-    max-width: 70%;
+    max-width: 1000px;
     border-radius: 8px;
     padding: 80px;
     margin: 90px auto;

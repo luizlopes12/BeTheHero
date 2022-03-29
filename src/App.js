@@ -2,12 +2,8 @@ import React from 'react'
 import GlobalStyles from './global/GlobalStyles'
 import { Provider } from 'react-redux'
 import store from './store'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Home from './pages/Home'
-import Admin from './pages/Admin'
-import NewCase from './pages/NewCase'
+import { BrowserRouter as Router } from 'react-router-dom'
+import RoutesManager from './RoutesManager'
 const App = () => {
   // 
 
@@ -33,13 +29,7 @@ const App = () => {
     <Provider store={store}>
     <Router>
     <GlobalStyles/>
-    <Routes>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/>
-      <Route path='/admin' element={<Admin/>}/>
-      <Route path='/newcase' element={<NewCase/>}/>
-      <Route path='/' element={<Home/>}/>
-    </Routes>
+    <RoutesManager/>
     </Router>
     </Provider>
   )

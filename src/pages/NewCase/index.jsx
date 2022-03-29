@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { firebase } from "../../services/firebase";
 import { NewCaseStyle } from "./styled";
 import { useSelector } from "react-redux";
@@ -7,20 +7,14 @@ import TextField from "../../components/TextField";
 import Button from "../../components/Button";
 import logo from "../../img/Logo.svg";
 import arrow from "../../img/voltar-arrow.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const NewCase = () => {
-  const navigate = useNavigate();
   const ongData = useSelector(state => state.userData)
   const ongRef = ongData && ongData[0]
   const ongContact = ongData && ongData[1]
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
-
-
-  useEffect(()=>{
-    !ongData && navigate('/')
-  },[])
 
   const handleTitle = (e) =>{
     setTitle(e.target.value)

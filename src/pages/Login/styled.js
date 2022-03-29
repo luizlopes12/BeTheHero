@@ -4,7 +4,7 @@ export const LoginStyle = styled.section`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  max-width: 80%;
+  max-width: 1000px;
   min-height: 100vh;
   margin: auto;
   aside {
@@ -60,7 +60,6 @@ export const LoginStyle = styled.section`
       width: 650px;
     }
   }
-
   @media screen and (max-width: 940px) {
     aside {
       div {

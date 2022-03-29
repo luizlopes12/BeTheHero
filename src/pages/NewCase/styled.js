@@ -5,7 +5,7 @@ export const NewCaseStyle = styled.section`
     justify-content: center;
     align-items: center;
     max-height: 100vh;
-    max-width: 70%;
+    max-width: 1000px;
     border-radius: 8px;
     padding: 80px;
     margin: 90px auto;
@@ -63,6 +63,7 @@ export const NewCaseStyle = styled.section`
             gap: 5px;
         }
     }
+
     @media screen and (max-width: 940px) {
     display: block;
     max-height: fit-content;

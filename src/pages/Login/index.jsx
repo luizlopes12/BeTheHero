@@ -37,7 +37,7 @@ const Login = () => {
       const documentsArray = Object.entries(await documents)
       const ongData = documentsArray.find(([key, value])=> value.email === email && value)
       dispatch(setUserData(ongData))
-      navigate(`/newcase`)
+      navigate(`/admin`)
     })
     .catch((error) => {
     var errorCode = error.code;
