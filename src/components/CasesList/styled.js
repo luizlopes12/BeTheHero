@@ -6,7 +6,14 @@ export const ListStyle = styled.ul`
     list-style: none;
     display: flex;
     justify-content: space-between;
-
+    img{
+        width: 60px;
+        height: 60px;
+        margin: 20px auto;
+    }
+    @media screen and (max-width: 1000px){
+        margin: 0 10px;
+    }
     @media screen and (max-width: 800px){
         flex-direction: column;
         align-items: center;

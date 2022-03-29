@@ -20,6 +20,11 @@ export const HeaderStyle = styled.header`
                 font-size: 1em;
                 font-weight: 500;
                 color: #737380;
+                img{
+                    width: 25px;
+                    height: 25px;
+                    margin: auto;
+                }
         }
         nav{
             display: flex;

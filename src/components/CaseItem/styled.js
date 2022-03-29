@@ -38,7 +38,10 @@ export const ItemStyle = styled.li`
 
     @media screen and (max-width: 800px){
         margin: 10px 0;
-        width: 90%;
+        width: 100%;
         height: max-content;
+        .desc{
+            display: none;
+        }
     }
 `;

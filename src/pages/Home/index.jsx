@@ -1,36 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header'
-import CasesList from '../../components/CasesList'
-import CaseItem from '../../components/CaseItem'
-import { firebase } from '../../services/firebase'
+import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
+import CasesList from "../../components/CasesList";
+import CaseItem from "../../components/CaseItem";
+import { firebase } from "../../services/firebase";
 const Home = () => {
-    // Buscando dados no banco, fazendo um filtro para pegar todos os casos registrados em todas as ONGs
+  const [cases, setCases] = useState([]);
+  // Buscando dados no banco, fazendo um filtro para pegar todos os casos registrados em todas as ONGs
+  useEffect(() => {
+    const getData = async () => {
+      const ref = await firebase.database().ref("ONGs/");
+      ref.on(
+        "value",
+        async (snapshot) => {
+          const registeredONGs = await Object.entries(snapshot.val())
+            .map((item) => item[1])
+            .map((opa) => opa.cases);
+          setCases(
+            registeredONGs.map((ongCases) =>
+              Object.entries(ongCases !== undefined && ongCases)
+                .map((casesArray) => casesArray[1])
+                .map((caseItem) => caseItem)
+            )
+          );
+        },
+        (errorObject) => {
+          console.log("The read failed: " + errorObject.name);
+        }
+      );
+    };
+    getData();
+  }, []);
 
-    const [cases, setCases] = useState([])
-    useEffect(()=>{
-      const getData = async() =>{
-        const ref = await firebase.database().ref('ONGs/')
-        ref.on('value', async(snapshot) => {
-          const registeredONGs = await Object.entries(snapshot.val()).map(item=>item[1]).map(opa=>opa.cases)
-          setCases(registeredONGs.map(ongCases=> Object.entries(ongCases!== undefined && ongCases).map(casesArray=>casesArray[1]).map(caseItem=>caseItem)))
-        }, (errorObject) => {
-          console.log('The read failed: ' + errorObject.name);
-        });
-      }
-      getData()
-    },[])
-    let quantity = cases.map(items=>items.length)
+  let quantity = cases.map((items) => items.length);
   return (
     <>
-    <Header quantity={quantity}/>
-    <CasesList>
-      {cases.map(item=>item.map(value=>(
-       <CaseItem  key={value.id} value={value}/>
-      )))
-    }
-    </CasesList>
+      <Header quantity={quantity} />
+      <CasesList>
+        {cases.map((item) =>
+          item.map((value) => <CaseItem key={value.id} value={value} />)
+        )}
+      </CasesList>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
