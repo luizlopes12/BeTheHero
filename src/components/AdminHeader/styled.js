@@ -23,7 +23,10 @@ export const HeaderStyle = styled.header`
             align-items: center;
             gap: 5px
         }
-        
+        a{
+            text-decoration: none;
+            color: #fff;       
+        }
         @media screen and (max-width: 800px){
             header{
             display: flex;

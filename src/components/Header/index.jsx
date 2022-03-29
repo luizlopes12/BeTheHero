@@ -1,7 +1,7 @@
 import React from 'react'
 import { HeaderStyle } from './styled'
 import logo from '../../img/Logo.svg'
-const Header = () => {
+const Header = ({quantity}) => {
   return (
     <HeaderStyle>
         <>
@@ -9,7 +9,7 @@ const Header = () => {
         <div>
             <img src={logo} alt="Be The Hero" />
         </div>
-          <span>Total de 0 casos</span>
+          <span>Total de {quantity > 1 ? `${quantity} casos`: `${quantity} casos`}</span>
         </div>
           <aside>
               <h1>Bem-vindo!</h1>
