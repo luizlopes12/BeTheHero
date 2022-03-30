@@ -31,10 +31,18 @@ const Home = () => {
     getData();
   }, []);
 
-  let quantity = cases.map((items) => items.length);
+  // Contando o numero total de casos para mostrar no header
+  let casesCountByOng = cases.map((item) => item.length);
+  let totalCasesCount;
+  if (casesCountByOng.length > 0) {
+    totalCasesCount = casesCountByOng.reduce((count, i) => {
+      return count + i;
+    });
+  }
+
   return (
     <>
-      <Header quantity={quantity} />
+      <Header quantity={totalCasesCount} />
       <CasesList>
         {cases.map((item) =>
           item.map((value) => <CaseItem key={value.id} value={value} />)

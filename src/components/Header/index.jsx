@@ -1,7 +1,6 @@
 import React from 'react'
 import { HeaderStyle } from './styled'
 import { Link } from 'react-router-dom'
-import loading from '../../img/loadingWhite.svg'
 import logo from '../../img/Logo.svg'
 const Header = ({quantity}) => {
   return (
@@ -11,7 +10,7 @@ const Header = ({quantity}) => {
         <div>
             <Link to='/'><img src={logo} alt="Be The Hero" /></Link>
         </div>
-          <span>{quantity > 0 ? `Total de ${quantity} casos` : (<img src={loading} alt='Carregando'/>)}</span>
+          <span>{quantity > 0 && `Total de ${quantity} casos`}</span>
         </div>
           <aside>
               <h1>Bem-vindo!</h1>
