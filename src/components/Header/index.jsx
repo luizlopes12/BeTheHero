@@ -60,7 +60,12 @@ const Header = ({ quantity }) => {
                     <img src={logo} alt="Be The Hero" />
                   </Link>
                 </div>
-                <span>{quantity > 0 && `Total de ${quantity} casos`}</span>
+                <p>
+                <Link to='/login'>
+                  <Button width='120px' height='40px' color='#FFF' bgColor='#E02041'>Login</Button>
+                </Link>
+                  {quantity > 0 && `Total de ${quantity} casos`}
+                </p>
               </div>
               <aside>
                 <h1>Bem-vindo!</h1>

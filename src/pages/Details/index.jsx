@@ -8,7 +8,7 @@ const Details = () => {
   const caseInfo = useSelector(state => state.caseData)
   console.log(caseInfo.phone)
   const sendWhatsAppMessage = () =>{
-    let url = `https://web.whatsapp.com/send?phone=${caseInfo.phone}&text=${encodeURI('Olá, gostaria de ajudar financeiramente no caso ' + caseInfo.title)}`
+    let url = `https://web.whatsapp.com/send?phone=${caseInfo.phone}&text=${encodeURI(`Olá, gostaria de ajudar financeiramente no caso ${caseInfo.title}`)}`
     window.open(url)
   }
 

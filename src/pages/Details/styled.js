@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const DetailsStyle = styled.section`
+margin-top: 50px;
 section{
     background-color: #fff;
     width: 60%;

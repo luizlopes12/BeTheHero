@@ -13,6 +13,16 @@ export const UserHeader = styled.header`
                 cursor: pointer;
             }
         }
+
+        p{
+            font-weight: 500;
+            color: #737380;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
         aside{
             margin-top: 10px;
         }
@@ -33,14 +43,25 @@ export const UserHeader = styled.header`
         }
         
         @media screen and (max-width: 1024px){
-            margin: 20px 10px;
+            margin: 10px 10px;
             div{
                 img{
                     width: 100px;
                 }
             }
+            p{
+            font-size: .9em;
+            padding: 15px 0 0;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            button{
+                width: 100px;
+                height: 35px;
+            }
+        }
             aside{
-                margin-top: 20px;
+                margin-top: 5px;
                 max-width: 65%;
             }
             span{
