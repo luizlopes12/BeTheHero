@@ -7,12 +7,12 @@ const Home = () => {
   const [cases, setCases] = useState([]);
   // Buscando dados no banco, fazendo um filtro para pegar todos os casos registrados em todas as ONGs
   useEffect(() => {
-    const getData = async () => {
-      const ref = await firebase.database().ref("ONGs/");
+    const getData = () => {
+      const ref = firebase.database().ref("ONGs/");
       ref.on(
         "value",
-        async (snapshot) => {
-          const registeredONGs = await Object.entries(snapshot.val())
+         (snapshot) => {
+          const registeredONGs = Object.entries(snapshot.val())
             .map((item) => item[1])
             .map((opa) => opa.cases);
           setCases(

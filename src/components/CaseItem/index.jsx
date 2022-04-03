@@ -2,7 +2,13 @@ import React from "react";
 import { ItemStyle } from "./styled";
 import entrar from "../../img/entrar.svg";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import setCaseData from "../../store/actions/setCaseData";
 const CaseItem = ({ value }) => {
+  const dispatch = useDispatch()
+  const getCaseDataToDetails = () =>{
+    dispatch(setCaseData(value))
+  }
   return (
     <ItemStyle>
       <div>
@@ -27,7 +33,7 @@ const CaseItem = ({ value }) => {
         Valor: <span>R$ {value.price}</span>
       </p>
       <hr />
-      <Link to="/">
+      <Link to="/details" onClick={getCaseDataToDetails}>
         Ver mais detalhes
         <img src={entrar} alt="Mais detalhes" />
       </Link>
