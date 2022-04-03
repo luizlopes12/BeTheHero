@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import AdminHeader from '../../components/AdminHeader'
+import Header from '../../components/Header'
 import { AdminStyle } from './styled'
 const Admin = () => {
-  
   return (
       <AdminStyle>
-        <AdminHeader/>
+        <Header/>
       </AdminStyle>
   )
 }
