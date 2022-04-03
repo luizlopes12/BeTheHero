@@ -9,13 +9,14 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 const RoutesManager = () => {
     const loggedIn = useSelector(state => state.userData)
+    const caseData = useSelector(state => state.caseData)
   return (
     <Routes>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/admin' element={loggedIn ? <Admin/> : <Navigate to="/"/>}/>
-      <Route path='/newcase' element={loggedIn ? <NewCase/>: <Navigate to="/"/>}/>
-      <Route path='/details' element={<Details/>}/>
+      <Route path='/newcase' element={loggedIn ? <NewCase/> : <Navigate to="/"/>}/>
+      <Route path='/details' element={caseData ? <Details/> : <Navigate to="/"/>}/>
       <Route path='/' element={<Home/>}/>
     </Routes>
   )
