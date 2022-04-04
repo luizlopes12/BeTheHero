@@ -7,3 +7,10 @@ Disponivel em: https://bethehero24.web.app
 ![](img2.png)
 ![](img3.png)
 ![](img4.png)
+
+## Tecnologias utilizadas
+
+- React
+- Redux
+- Styled components
+- Firebase
