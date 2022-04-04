@@ -11,13 +11,15 @@ const CaseItem = ({ value }) => {
   const ongRef = loggedIn[0]
   const casesCode = value[0]
   const casesData = value[1]
+  const casesDataToUser = value
+  console.log(casesDataToUser)
   const dispatch = useDispatch()
   const caseDelete = (casesCode) =>{
     const caseLocation = firebase.database().ref(`ONGs/${ongRef}/cases/${casesCode}`)
     console.log(caseLocation.remove());
   }
   const getCaseDataToDetails = () =>{
-    dispatch(setCaseData(casesData))
+    dispatch(setCaseData(casesDataToUser))
   }
   return (
     <>
@@ -47,24 +49,24 @@ const CaseItem = ({ value }) => {
       <UserItem>
       <div>
         <p>
-          Caso: <span>{value.title}</span>
+          Caso: <span>{casesDataToUser.title}</span>
         </p>
         <p>
-          ONG: <span>{value.ongName}</span>
+          ONG: <span>{casesDataToUser.ongName}</span>
         </p>
       </div>
       <div className="desc">
         <p>
           Descrição:
           <span>
-            {value.description.length > 110
-              ? value.description.substring(0, 110) + "..."
-              : value.description}
+            {casesDataToUser.description.length > 110
+              ? casesDataToUser.description.substring(0, 110) + "..."
+              : casesDataToUser.description}
           </span>
         </p>
       </div>
       <p>
-        Valor: <span>R$ {value.price}</span>
+        Valor: <span>R$ {casesDataToUser.price}</span>
       </p>
       <hr />
       <Link to="/details" onClick={getCaseDataToDetails}>
@@ -73,7 +75,6 @@ const CaseItem = ({ value }) => {
       </Link>
     </UserItem>
     )}
-
     </>
 
   );

@@ -79,7 +79,7 @@ export const AdminHeader = styled.header`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
+        max-width: 1100px;
         margin: 20px auto;
         div{
             display: flex;

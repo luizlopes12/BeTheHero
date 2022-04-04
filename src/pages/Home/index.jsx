@@ -44,8 +44,9 @@ const Home = () => {
     <>
       <Header quantity={totalCasesCount} />
       <CasesList>
-        {cases.map(([key,item]) =>
-          item.map((value) => <CaseItem key={key} value={value} />)
+        {cases.map((item) =>(
+          item.map(value=><CaseItem key={value !== undefined && value.id} value={value !== undefined && value} />)
+        )
         )}
       </CasesList>
     </>

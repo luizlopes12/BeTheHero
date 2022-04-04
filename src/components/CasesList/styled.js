@@ -7,6 +7,11 @@ export const ListStyle = styled.ul`
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    .message{
+        width: 100%;
+        text-align: center;
+        color: #737380;
+    }
     img{
         width: 60px;
         height: 60px;

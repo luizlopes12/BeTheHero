@@ -35,7 +35,12 @@ const NewCase = () => {
         email: ongContact.email,
         phone: ongContact.phone,
         ongName: ongContact.ongName
-    }).then(()=> console.log('receba'))
+    }).then(()=> {
+    setTitle('')
+    setDescription('')
+    setPrice('')
+
+    })
   }
 
   console.log(ongRef)
