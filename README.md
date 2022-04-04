@@ -1,4 +1,4 @@
 # BeTheHero
  Sistema para facilitar pessoas que querem ajudar ONGs
 
-Em desenvolvimento...
+Disponivel em: https://bethehero24.web.app
