@@ -14,7 +14,7 @@ export const LoginStyle = styled.section`
     h2 {
       margin-bottom: 10px;
     }
-    div img{
+    div img {
       width: 200px;
       margin-bottom: 60px;
     }
@@ -36,15 +36,15 @@ export const LoginStyle = styled.section`
         width: fit-content;
         padding-bottom: 2px;
         border-bottom: 2px solid transparent;
-        transition: all .2s ease-in-out;
-        &:hover{
+        transition: all 0.2s ease-in-out;
+        &:hover {
           border-bottom: 2px solid #000;
         }
         img {
           width: 16px;
           margin: 0;
         }
-        a{
+        a {
           text-decoration: none;
           color: #000;
         }

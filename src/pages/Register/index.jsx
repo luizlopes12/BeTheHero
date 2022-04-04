@@ -18,6 +18,7 @@ const Register = () => {
   const [uf, setUf] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState('')
   const handleOngName = (e) => {
     setOngName(e.target.value);
   };
@@ -64,10 +65,7 @@ const Register = () => {
             navigate(`/admin`)
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+        setErrorMessage('Campos preenchidos incorretamente');
       });
   };
   return (
@@ -133,6 +131,7 @@ const Register = () => {
           width="350px"
           height="50px"
         />
+        {<p className="error">{errorMessage}</p>}
         <Button
           type="submit"
           color="#FFF"

@@ -1,10 +1,10 @@
 import React from "react";
 import { AdminHeader, UserHeader } from "./styled";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import setUserData from '../../store/actions/setUserData'
+import setUserData from "../../store/actions/setUserData";
 import logo from "../../img/Logo.svg";
 import arrow from "../../img/voltar-arrow.svg";
 import Button from "../../components/Button";
@@ -14,12 +14,12 @@ const Header = ({ quantity }) => {
   const loggedIn = useSelector((state) => state.userData);
   const caseData = useSelector((state) => state.caseData);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const location = useLocation().pathname;
   const name = loggedIn ? loggedIn[1].ongName : "";
-  const userLogout = () =>{
-    dispatch(setUserData(''))
-  }
+  const userLogout = () => {
+    dispatch(setUserData(""));
+  };
   return (
     <>
       {loggedIn ? (
@@ -68,9 +68,16 @@ const Header = ({ quantity }) => {
                   </Link>
                 </div>
                 <p>
-                <Link to='/login'>
-                  <Button width='120px' height='40px' color='#FFF' bgColor='#E02041'>Login</Button>
-                </Link>
+                  <Link to="/login">
+                    <Button
+                      width="120px"
+                      height="40px"
+                      color="#FFF"
+                      bgColor="#E02041"
+                    >
+                      Login
+                    </Button>
+                  </Link>
                   {quantity > 0 && `Total de ${quantity} casos`}
                 </p>
               </div>

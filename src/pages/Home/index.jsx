@@ -11,7 +11,7 @@ const Home = () => {
       const ref = firebase.database().ref("ONGs/");
       ref.on(
         "value",
-         (snapshot) => {
+        (snapshot) => {
           const registeredONGs = Object.entries(snapshot.val())
             .map((item) => item[1])
             .map((opa) => opa.cases);
@@ -22,9 +22,6 @@ const Home = () => {
                 .map((caseItem) => caseItem)
             )
           );
-        },
-        (errorObject) => {
-          console.log("The read failed: " + errorObject.name);
         }
       );
     };
@@ -44,9 +41,13 @@ const Home = () => {
     <>
       <Header quantity={totalCasesCount} />
       <CasesList>
-        {cases.map((item) =>(
-          item.map(value=><CaseItem key={value !== undefined && value.id} value={value !== undefined && value} />)
-        )
+        {cases.map((item) =>
+          item.map((value) => (
+            <CaseItem
+              key={value !== undefined && value.id}
+              value={value !== undefined && value}
+            />
+          ))
         )}
       </CasesList>
     </>

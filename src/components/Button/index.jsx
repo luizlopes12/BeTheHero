@@ -1,7 +1,16 @@
 import React from "react";
 import { ButtonStyle } from "./styled";
 
-const Button = ({ color, bgColor, children, width, height, type, outlined, onClick }) => {
+const Button = ({
+  color,
+  bgColor,
+  children,
+  width,
+  height,
+  type,
+  outlined,
+  onClick,
+}) => {
   return (
     <ButtonStyle
       color={color}

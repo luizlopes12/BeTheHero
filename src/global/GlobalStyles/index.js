@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const primary = '#F0F0F5'
-
+const primary = "#F0F0F5";
 
 const GlobalStyle = createGlobalStyle`
     *,body{
@@ -17,5 +16,4 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-
-export default GlobalStyle
+export default GlobalStyle;
