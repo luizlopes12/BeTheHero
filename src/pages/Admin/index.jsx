@@ -4,7 +4,6 @@ import CasesList from '../../components/CasesList'
 import CaseItem from '../../components/CaseItem'
 import { useSelector } from 'react-redux'
 import Header from '../../components/Header'
-import { AdminStyle } from './styled'
 const Admin = () => {
   const ongRef = useSelector(state => state.userData[0])
   const [cases, setCases] = useState([]);
@@ -25,7 +24,7 @@ const Admin = () => {
     getData();
   }, []);
   return (
-      <AdminStyle>
+      <>
         <Header/>
         <CasesList>
         {cases.map((casesData) => (
@@ -33,7 +32,7 @@ const Admin = () => {
 
         ))}
         </CasesList>
-      </AdminStyle>
+      </>
   )
 }
 

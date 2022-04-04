@@ -1,8 +1,10 @@
 import React from "react";
 import { AdminHeader, UserHeader } from "./styled";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import setUserData from '../../store/actions/setUserData'
 import logo from "../../img/Logo.svg";
 import arrow from "../../img/voltar-arrow.svg";
 import Button from "../../components/Button";
@@ -12,8 +14,12 @@ const Header = ({ quantity }) => {
   const loggedIn = useSelector((state) => state.userData);
   const caseData = useSelector((state) => state.caseData);
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const location = useLocation().pathname;
   const name = loggedIn ? loggedIn[1].ongName : "";
+  const userLogout = () =>{
+    dispatch(setUserData(''))
+  }
   return (
     <>
       {loggedIn ? (
@@ -32,6 +38,7 @@ const Header = ({ quantity }) => {
               width="50px"
               height="50px"
               outlined
+              onClick={userLogout}
             >
               <img src={logout} alt="Sair" />
             </Button>

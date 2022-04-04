@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import Admin from '../pages/Admin'
 import NewCase from '../pages/NewCase'
 import Details from '../pages/Details'
+import Footer from '../components/Footer'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 const RoutesManager = () => {

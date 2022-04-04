@@ -103,20 +103,17 @@ export const AdminHeader = styled.header`
             color: #fff;       
         }
         @media screen and (max-width: 800px){
-            header{
-            display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
             margin: 20px 10px;
             div{
-                display: flex;
-                align-items: center;
-                gap: 10px;
                 img{
                     width: 100px;
+                    margin-bottom: 10px;
                 }
                 p{
-                    display: none;
+                    font-size: 1em;
                 }
             }
             span{
@@ -125,9 +122,7 @@ export const AdminHeader = styled.header`
                 color: #737380;
             }
             nav{
-                display: none;
             }
         }
-    }
 
 `;
