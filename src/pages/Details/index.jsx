@@ -14,6 +14,11 @@ const Details = () => {
     window.open(url);
   };
 
+  const handleCopyEmail = () =>{
+    navigator.clipboard.writeText(caseInfo.email).then(()=>{
+      alert("Email copiado!")
+    })
+  }
   return (
     <>
       <Header />
@@ -50,6 +55,15 @@ const Details = () => {
               onClick={sendWhatsAppMessage}
             >
               Entre em contato via WhatsApp
+            </Button>
+            <Button
+              color="#FFF"
+              bgColor="#E02041"
+              width="40%"
+              height="50px"
+              onClick={handleCopyEmail}
+            >
+              {caseInfo.email}
             </Button>
           </div>
         </section>
