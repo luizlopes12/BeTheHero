@@ -69,8 +69,11 @@ export const DetailsStyle = styled.section`
         font-size: 1em;
       }
       .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         button {
-          width: 90%;
+          width: 100%;
         }
       }
     }
